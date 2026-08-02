@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.env
+
+# Streamlit
+.streamlit/
+
+# Vector database
+data/vector_db/
+
+# Temporary files
+tmp/
+
+# Uploaded PDFs
+*.pdf
+
+# OS files
+.DS_Store
