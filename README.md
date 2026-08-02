@@ -7,7 +7,7 @@
 
 ## 🌐 Live Demo
 
-🚀 Try the deployed application:
+🚀 Try UniMind AI here:
 
 https://unimind-ai-anou2gn6gpq9nmpupqkstm.streamlit.app/
 
@@ -17,25 +17,28 @@ https://unimind-ai-anou2gn6gpq9nmpupqkstm.streamlit.app/
 
 **UniMind AI** is an AI-powered PDF chatbot built using **Retrieval-Augmented Generation (RAG)**.
 
-It allows users to upload PDF documents and ask questions about their content. The application extracts information from documents, converts it into vector embeddings, retrieves relevant information, and generates accurate answers using a Large Language Model.
+It allows users to upload PDF documents and interact with them through a ChatGPT-like interface.
 
-This project demonstrates the practical implementation of:
+The application processes documents, creates embeddings, stores them in a vector database, retrieves relevant information, and generates responses using an LLM.
 
-- Document processing
+This project demonstrates practical implementation of:
+
+- PDF processing
 - Text chunking
+- Embeddings
 - Semantic search
 - Vector databases
-- Embeddings
 - Retrieval-Augmented Generation
 - LLM-based question answering
+
 
 ---
 
 # ✨ Features
 
-## 📂 PDF Document Upload
+## 📂 PDF Upload
 
-- Upload one or multiple PDF files
+- Upload multiple PDF files
 - Extract text automatically
 - Preserve document metadata:
   - Filename
@@ -45,24 +48,24 @@ This project demonstrates the practical implementation of:
 
 ## 🧠 AI Document Understanding
 
-- Creates embeddings from document chunks
-- Stores embeddings using FAISS vector database
+- Converts document chunks into embeddings
+- Stores embeddings using FAISS
 - Retrieves relevant information based on user queries
 
 
-## 💬 Chat With PDFs
+## 💬 Chat With Your Documents
 
-Users can ask questions such as:
+Users can ask questions like:
 
 - Summarize a chapter
-- Explain a concept
-- Find information from documents
-- Generate explanations from uploaded notes
+- Explain concepts
+- Find information from notes
+- Ask questions from uploaded PDFs
 
 
 ## 📚 Source References
 
-Every response provides:
+Each answer provides:
 
 - Source PDF name
 - Page number
@@ -71,39 +74,41 @@ Every response provides:
 
 ## ⚡ Streaming Responses
 
-AI responses are generated in real-time for a ChatGPT-like experience.
+Responses are generated in real-time for a better conversational experience.
+
 
 ---
 
 # 🏗️ System Architecture
 
 ```
-                User
-                 |
-                 |
-          Upload PDF Files
-                 |
-                 |
-            PDF Loader
-                 |
-                 |
+                 User
+                  |
+                  |
+            Upload PDFs
+                  |
+                  |
+             PDF Loader
+                  |
+                  |
           Text Splitter
-                 |
-                 |
-        Embedding Generator
-                 |
-                 |
-          FAISS Vector DB
-                 |
-                 |
+                  |
+                  |
+       Embedding Generator
+                  |
+                  |
+            FAISS DB
+                  |
+                  |
             Retriever
-                 |
-                 |
+                  |
+                  |
              Groq LLM
-                 |
-                 |
-          AI Generated Answer
+                  |
+                  |
+          Generated Answer
 ```
+
 
 ---
 
@@ -111,7 +116,7 @@ AI responses are generated in real-time for a ChatGPT-like experience.
 
 ## Programming Language
 
-- Python
+- Python 3.14
 
 
 ## Frontend
@@ -124,7 +129,7 @@ AI responses are generated in real-time for a ChatGPT-like experience.
 - LangChain
 
 
-## Large Language Model
+## LLM
 
 - Groq API
 - Llama 3.3 70B
@@ -145,6 +150,8 @@ sentence-transformers/all-MiniLM-L6-v2
 ## PDF Processing
 
 - PyPDF
+
+
 
 ---
 
@@ -176,9 +183,11 @@ UniMind-AI/
 └── .gitignore
 ```
 
+
 ---
 
 # ⚙️ Installation & Setup
+
 
 ## Clone Repository
 
@@ -188,13 +197,13 @@ git clone YOUR_GITHUB_REPOSITORY_LINK
 cd UniMind-AI
 ```
 
----
 
 ## Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
+
 
 Activate:
 
@@ -204,19 +213,20 @@ Activate:
 venv\Scripts\activate
 ```
 
+
 ### Linux/Mac
 
 ```bash
 source venv/bin/activate
 ```
 
----
 
 ## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
+
 
 ---
 
@@ -227,6 +237,7 @@ Create a `.env` file:
 ```env
 GROQ_API_KEY=your_api_key_here
 ```
+
 
 For Streamlit Cloud:
 
@@ -244,25 +255,29 @@ Add:
 GROQ_API_KEY="your_api_key_here"
 ```
 
+
 ---
 
 # ▶️ Run Locally
 
-Start the application:
+Run:
 
 ```bash
 streamlit run app.py
 ```
 
-Application will open:
+
+Open:
 
 ```
 http://localhost:8501
 ```
 
+
 ---
 
 # 📸 Screenshots
+
 
 ## Home Page
 
@@ -283,6 +298,8 @@ http://localhost:8501
 
 ![Response](assets/screenshots/response.png)
 
+
+
 ---
 
 # 🔄 How UniMind AI Works
@@ -291,32 +308,37 @@ http://localhost:8501
 
 2. PDF loader extracts text
 
-3. Text splitter divides text into chunks
+3. Text splitter divides text into smaller chunks
 
 4. Embedding model converts chunks into vectors
 
-5. FAISS stores the vectors
+5. FAISS stores document vectors
 
 6. User asks a question
 
-7. Retriever finds relevant chunks
+7. Retriever finds relevant document chunks
 
-8. LLM generates the final answer using retrieved context
+8. LLM generates an answer using retrieved context
+
+
 
 ---
 
 # 🚀 Deployment
 
-The application is deployed using:
+UniMind AI is deployed using:
 
 - Streamlit Cloud
 
-Deployment process:
+
+Deployment steps:
 
 1. Push project to GitHub
 2. Connect repository with Streamlit Cloud
 3. Add API key in Secrets
 4. Deploy application
+
+
 
 ---
 
@@ -324,30 +346,40 @@ Deployment process:
 
 - Conversation memory
 - Better document management
-- Multiple user accounts
-- Support for more file formats
+- Multiple user support
+- More file format support
 - Voice interaction
 - Improved UI animations
-- Cloud vector database support
+- Cloud-based vector databases
+
+
 
 ---
 
 # 👨‍💻 Author
 
-**Your Name**
+**Somya Kumar**
 
-Computer Science Engineering Student  
-Interested in Artificial Intelligence, Machine Learning and Generative AI
+Computer Science Engineering Student
+
+Interested in:
+- Artificial Intelligence
+- Machine Learning
+- Generative AI
+
 
 ---
 
 # 🙏 Acknowledgements
+
+Thanks to:
 
 - Streamlit
 - LangChain
 - HuggingFace
 - FAISS
 - Groq
+
 
 ---
 
