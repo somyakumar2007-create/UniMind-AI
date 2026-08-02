@@ -1,193 +1,175 @@
-# 🤖 UniMind AI - Personal AI Assistant for PDFs
+# 🤖 UniMind AI - AI Powered PDF Chat Assistant
 
-![Python](https://img.shields.io/badge/Python-3.14-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
-![LangChain](https://img.shields.io/badge/LangChain-RAG-green)
-![FAISS](https://img.shields.io/badge/Vector%20Database-FAISS-orange)
+![UniMind AI](assets/screenshots/home.png)
 
-## 📚 Overview
+UniMind AI is a **Retrieval Augmented Generation (RAG) based PDF chatbot** that allows users to upload PDF documents and interact with them using natural language.
 
-**UniMind AI** is an AI-powered PDF assistant that allows users to upload documents and interact with them using natural language.
-
-Instead of manually searching through long PDFs, users can ask questions and UniMind retrieves relevant information from the documents and generates accurate responses using a Retrieval-Augmented Generation (RAG) pipeline.
-
-This project demonstrates the practical implementation of:
-
-- Document processing
-- Text chunking
-- Embeddings generation
-- Vector databases
-- Semantic search
-- Large Language Models
-- Retrieval-Augmented Generation (RAG)
-
+The application extracts information from uploaded PDFs, converts the content into meaningful embeddings, stores them in a FAISS vector database, retrieves relevant context, and generates AI-powered answers using an LLM.
 
 ---
 
-## ✨ Features
+# 🚀 Features
 
-✅ Upload multiple PDF documents
-
-✅ Extract text from documents
-
-✅ Split documents into meaningful chunks
-
-✅ Generate semantic embeddings
-
-✅ Store embeddings using FAISS vector database
-
-✅ Retrieve relevant document sections
-
-✅ Ask questions about uploaded PDFs
-
-✅ Generate AI responses using LLMs
-
-✅ Display source references (file name, page number, chunk)
-
+- 📄 Upload multiple PDF documents
+- 🔍 Extract text from PDF files
+- ✂️ Intelligent text chunking
+- 🧠 Generate semantic embeddings
+- 💾 Store embeddings using FAISS vector database
+- 🔎 Similarity-based document retrieval
+- 🤖 RAG-based question answering
+- 💬 ChatGPT-style chat interface
+- ⚡ Streaming AI responses
+- 📚 Source references with:
+  - File name
+  - Page number
+  - Chunk ID
 
 ---
 
-## 🏗️ Project Architecture
+# 🏗️ How UniMind AI Works
 
 ```
-PDF Upload
-     |
-     ↓
-PDF Loader
-     |
-     ↓
-Text Splitter
-     |
-     ↓
-Embedding Generator
-     |
-     ↓
-FAISS Vector Database
-     |
-     ↓
-Retriever
-     |
-     ↓
-RAG Pipeline
-     |
-     ↓
-AI Generated Answer
+              User
+               |
+               |
+        Upload PDF Documents
+               |
+               |
+        PDF Text Extraction
+               |
+               |
+        Text Chunking
+               |
+               |
+        Embedding Generation
+               |
+               |
+        FAISS Vector Database
+               |
+               |
+        Similarity Search
+               |
+               |
+        Groq LLM (Llama)
+               |
+               |
+        AI Generated Answer
 ```
-
 
 ---
 
-## 🛠️ Tech Stack
+# 🛠️ Tech Stack
 
-### Programming Language
-- Python 3.14
+## Programming Language
+- Python
 
-### Frontend
+## Frontend
 - Streamlit
 
-### AI / ML Frameworks
-- LangChain
-- HuggingFace Embeddings
-- Groq LLM
+## AI / LLM
+- Groq API
+- Llama 3.3 70B
 
-### Vector Database
+## Frameworks
+- LangChain
+
+## Embeddings
+- HuggingFace Sentence Transformers
+
+## Vector Database
 - FAISS
 
-### Document Processing
+## PDF Processing
 - PyPDF
 
+---
+
+# 📂 Project Structure
+
+```
+UniMind-AI/
+│
+├── app.py                         # Main Streamlit application
+├── requirements.txt               # Project dependencies
+├── README.md
+├── .gitignore
+│
+├── assets/
+│   └── screenshots/
+│       ├── home.png
+│       ├── upload.png
+│       ├── processing.png
+│       └── chat.png
+│
+├── src/
+│   └── core/
+│       │
+│       ├── pdf_loader.py          # PDF text extraction
+│       ├── text_splitter.py       # Document chunking
+│       ├── embeddings.py          # Embedding generation
+│       ├── vector_store.py        # FAISS vector database
+│       └── rag_pipeline.py        # Retrieval + LLM pipeline
+│
+└── tests/
+    ├── test_vector_store.py
+    └── test_rag_pipeline.py
+```
 
 ---
 
-## 📂 Project Structure
+# ⚙️ Installation & Setup
 
-```
-UniMind-AI
-│
-├── app.py                 # Streamlit application
-│
-├── src
-│   └── core
-│       ├── pdf_loader.py
-│       ├── text_splitter.py
-│       ├── embeddings.py
-│       ├── vector_store.py
-│       └── rag_pipeline.py
-│
-├── data
-│   └── sample_pdfs
-│
-├── tests
-│   ├── test_vector_store.py
-│   ├── test_retriever.py
-│   └── test_rag_pipeline.py
-│
-├── requirements.txt
-│
-└── README.md
-```
-
-
----
-
-## ⚙️ Installation
-
-### 1. Clone the repository
+## 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/UniMind-AI.git
+git clone https://github.com/yourusername/UniMind-AI.git
 ```
 
-### 2. Navigate into the project
+Navigate into the project:
 
 ```bash
 cd UniMind-AI
 ```
 
-### 3. Create a virtual environment
+---
+
+## 2. Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-### 4. Activate virtual environment
+Activate the environment:
 
-Windows:
+### Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-Linux/Mac:
+---
 
-```bash
-source venv/bin/activate
-```
-
-
-### 5. Install dependencies
+## 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-
 ---
 
-## 🔑 Environment Variables
+## 4. Configure API Key
 
-Create a `.env` file in the root directory:
+Create a `.env` file in the project root.
 
-```
+Add your Groq API key:
+
+```env
 GROQ_API_KEY=your_api_key_here
 ```
 
-Replace `your_api_key_here` with your Groq API key.
-
-
 ---
 
-## ▶️ Running the Application
+# ▶️ Running the Application
 
 Start the Streamlit application:
 
@@ -199,86 +181,104 @@ The application will open in your browser.
 
 ---
 
-## 💬 Example Usage
+# 📸 Screenshots
 
-1. Upload PDF files
+## 🏠 Home Interface
 
-2. Click **Process Documents**
+![Home](assets/screenshots/home.png)
 
-3. Ask questions like:
+
+## 📂 Upload Documents
+
+![Upload](assets/screenshots/upload.png)
+
+
+## ⚙️ Document Processing
+
+![Processing](assets/screenshots/process.png)
+
+
+## 💬 Chat Interface
+
+![Chat](assets/screenshots/chat.png)
+
+---
+
+# 💡 Example Questions
+
+After uploading PDFs, users can ask:
 
 ```
 What is Exploratory Data Analysis?
 ```
 
 ```
-Explain linear regression
+Explain linear regression.
 ```
 
 ```
-Summarize chapter 1
+Summarize this document.
 ```
 
-4. UniMind retrieves relevant information and generates an answer.
-
+```
+What are the important concepts from this PDF?
+```
 
 ---
 
-## 🧪 Testing
+# 🧪 Testing
 
-Run individual tests:
+The project includes testing for:
+
+- PDF loading
+- Text splitting
+- Embedding generation
+- FAISS vector store creation
+- Retrieval pipeline
+- RAG response generation
+
+Run tests:
 
 ```bash
-python tests/test_vector_store.py
+pytest
 ```
-
-```bash
-python tests/test_retriever.py
-```
-
-```bash
-python tests/test_rag_pipeline.py
-```
-
 
 ---
 
-## 🚀 Future Improvements
-
-Some planned improvements:
+# 🔮 Future Improvements
 
 - Conversation memory
-- Support for more document formats
-- Better chunk optimization
+- Support for DOCX, PPT and TXT files
 - User authentication
 - Cloud deployment
-- Improved UI/UX
-- Multiple LLM provider support
-
-
----
-
-## 🎯 Learning Outcomes
-
-Through this project, I learned:
-
-- How Retrieval-Augmented Generation systems work
-- Building AI applications using LangChain
-- Working with embeddings and vector databases
-- Connecting LLMs with custom knowledge sources
-- Developing AI applications using Streamlit
-
+- Better document management
+- Multiple user support
+- Voice-based interaction
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Somya Kumar**
 
-Computer Science Engineering Student  
-Interested in Artificial Intelligence and Machine Learning
+Computer Science Engineering Student
 
+Interested in:
+- Artificial Intelligence
+- Machine Learning
+- Generative AI
+- Retrieval Augmented Generation
 
 ---
 
-⭐ If you find this project interesting, feel free to explore and improve it!
+# 🙏 Acknowledgements
+
+Special thanks to:
+
+- LangChain
+- HuggingFace
+- FAISS
+- Groq
+- Streamlit
+
+for providing the tools and frameworks used in this project.
