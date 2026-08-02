@@ -1,6 +1,7 @@
 import os
 from typing import List
 
+import streamlit as st
 from dotenv import load_dotenv
 
 from langchain_groq import ChatGroq
@@ -28,7 +29,17 @@ class RAGPipeline:
 
         load_dotenv()
 
-        api_key = os.getenv("GROQ_API_KEY")
+        if "GROQ_API_KEY" in st.secrets:
+            api_key = st.secrets["GROQ_API_KEY"]
+
+        else:
+            api_key = os.getenv("GROQ_API_KEY")
+
+
+        if not api_key:
+            raise ValueError(
+              "GROQ_API_KEY not found."
+            )
 
         if not api_key:
             raise ValueError(
